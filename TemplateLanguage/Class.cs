@@ -157,12 +157,12 @@ namespace TemplateLanguage
                         {
                             if (index > func.Body.SelectionRowIndex && index < func.Body.RowIndex)
                             {
-                                var sizeOfPrint = g.MesaureStringPixel(line.Name, control.Font);
+                                var sizeOfPrint = g.MesaureStringTypographic(line.Name, control.Font);
                                 g.FillRectangle(itemSelectedColor, X + Width + 2, y - 2, sizeOfPrint.Width, 22);
                             }
                             else if (index > func.Body.RowIndex && index < func.Body.SelectionRowIndex)
                             {
-                                var sizeOfPrint = g.MesaureStringPixel(line.Name, control.Font);
+                                var sizeOfPrint = g.MesaureStringTypographic(line.Name, control.Font);
                                 g.FillRectangle(itemSelectedColor, X + Width + 2, y - 2, sizeOfPrint.Width, 22);
                             }
 
@@ -170,15 +170,15 @@ namespace TemplateLanguage
                             {
                                 if (func.Body.SelectionColumnIndex < columnIndex)
                                 {
-                                    var sizeOfNonPrint = g.MesaureStringPixel(func.Body.SelectionColumnIndex == 0 ? "" : line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
-                                    var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(func.Body.SelectionColumnIndex, columnIndex - func.Body.SelectionColumnIndex), control.Font);
+                                    var sizeOfNonPrint = g.MesaureStringTypographic(func.Body.SelectionColumnIndex == 0 ? "" : line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
+                                    var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(func.Body.SelectionColumnIndex, columnIndex - func.Body.SelectionColumnIndex), control.Font);
 
                                     g.FillRectangle(itemSelectedColor, X + Width + 2 + sizeOfNonPrint.Width, y - 2, sizeOfPrint.Width, 22);
                                 }
                                 else
                                 {
-                                    var sizeOfNonPrint = g.MesaureStringPixel(line.Name.Substring(0, columnIndex), control.Font);
-                                    var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(columnIndex, func.Body.SelectionColumnIndex - columnIndex), control.Font);
+                                    var sizeOfNonPrint = g.MesaureStringTypographic(line.Name.Substring(0, columnIndex), control.Font);
+                                    var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(columnIndex, func.Body.SelectionColumnIndex - columnIndex), control.Font);
 
                                     g.FillRectangle(itemSelectedColor, X + Width + 2 + sizeOfNonPrint.Width, y - 2, sizeOfPrint.Width, 22);
                                 }
@@ -191,7 +191,7 @@ namespace TemplateLanguage
                                     {
                                         if (columnIndex != 0)
                                         {
-                                            var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(0, columnIndex), control.Font);
+                                            var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(0, columnIndex), control.Font);
                                             g.FillRectangle(itemSelectedColor, X + Width + 2, y - 2, sizeOfPrint.Width, 22);
                                         }
                                     }
@@ -204,8 +204,8 @@ namespace TemplateLanguage
                                         }
                                         else
                                         {
-                                            var sizeOfNonPrint = g.MesaureStringPixel(line.Name.Substring(0, columnIndex), control.Font);
-                                            var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(columnIndex), control.Font);
+                                            var sizeOfNonPrint = g.MesaureStringTypographic(line.Name.Substring(0, columnIndex), control.Font);
+                                            var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(columnIndex), control.Font);
                                             g.FillRectangle(itemSelectedColor, X + Width + 2 + sizeOfNonPrint.Width, y - 2, sizeOfPrint.Width, 22);
                                         }
                                     }
@@ -216,13 +216,13 @@ namespace TemplateLanguage
                                     {
                                         if (func.Body.SelectionColumnIndex == 0)
                                         {
-                                            var sizeOfPrint = g.MesaureStringPixel(line.Name, control.Font);
+                                            var sizeOfPrint = g.MesaureStringTypographic(line.Name, control.Font);
                                             g.FillRectangle(itemSelectedColor, X + Width + 2, y - 2, sizeOfPrint.Width, 22);
                                         }
                                         else
                                         {
-                                            var sizeOfNonPrint = g.MesaureStringPixel(func.Body.SelectionColumnIndex == 0 ? "" : line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
-                                            var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(func.Body.SelectionColumnIndex, line.Name.Length - func.Body.SelectionColumnIndex), control.Font);
+                                            var sizeOfNonPrint = g.MesaureStringTypographic(func.Body.SelectionColumnIndex == 0 ? "" : line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
+                                            var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(func.Body.SelectionColumnIndex, line.Name.Length - func.Body.SelectionColumnIndex), control.Font);
 
                                             g.FillRectangle(itemSelectedColor, X + Width + 2 + sizeOfNonPrint.Width, y - 2, sizeOfPrint.Width, 22);
                                         }
@@ -231,7 +231,7 @@ namespace TemplateLanguage
                                     {
                                         if (func.Body.SelectionColumnIndex != 0)
                                         {
-                                            var sizeOfPrint = g.MesaureStringPixel(line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
+                                            var sizeOfPrint = g.MesaureStringTypographic(line.Name.Substring(0, func.Body.SelectionColumnIndex), control.Font);
                                             g.FillRectangle(itemSelectedColor, X + Width + 2, y - 2, sizeOfPrint.Width, 22);
                                         }
                                     }
@@ -253,13 +253,13 @@ namespace TemplateLanguage
                                 {
                                     colindex = line.Name.Length;
                                 }
-                                var size3 = g.MesaureStringPixel(colindex == 0 ? "" : line.Name.Substring(0, colindex), control.Font);
+                                var size3 = g.MesaureStringTypographic(colindex == 0 ? "" : line.Name.Substring(0, colindex), control.Font);
                                 
                                 g.DrawLine(cursorPen, (float)(X + Width + 2 + size3.Width), (float)(y - 1), (float)(X + Width + 2 + size3.Width), (float)(y + 19 - 1));
                             }
                         }
                         
-                        g.DrawText(line.Name, control.Font, textColor, new RectangleF(X + Width + 2, y + 3, func.Width - 4, 19 - 3));
+                        g.DrawTextTypographic(line.Name, control.Font, textColor, new RectangleF(X + Width + 2, y + 3, func.Width - 4, 19 - 3));
 
                         y += 19;
                         index++;

@@ -14,6 +14,13 @@ namespace TemplateLanguage
     {
         public static StringFormat currentStringFormat;
         
+        /// <summary>
+        /// Uses GraphicsPath
+        /// </summary>
+        /// <param name="rec"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public static bool CircleContains(this RectangleF rec, float x, float y)
         {            
             GraphicsPath myPath = new GraphicsPath();
@@ -28,19 +35,30 @@ namespace TemplateLanguage
             
             return char.ToUpper(value[0]) + value.Substring(1);
         }
-        public static SizeF MesaureStringPixel(this Graphics g, string text, Font font)
+
+        /// <summary>
+        /// GenericTypographic is used, Tab is replaced with 4 spaces
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="text"></param>
+        /// <param name="font"></param>
+        /// <returns></returns>
+        public static SizeF MesaureStringTypographic(this Graphics g, string text, Font font)
         {            
-            return g.MeasureString(text.Replace("\t", "    "), font, int.MaxValue, currentStringFormat);
-            //var m = TextRenderer.MeasureText(g, text, font, new Size(width, 19), TextFormatFlags.Left | TextFormatFlags.NoPadding);
-            //return new SizeF(m.Width, m.Height);
-           // return TextRenderer.MeasureText(g, text, font);
+            return g.MeasureString(text.Replace("\t", "    "), font, int.MaxValue, currentStringFormat);           
         }
 
-        public static void DrawText(this Graphics g, string text, Font font, SolidBrush color, RectangleF bounds)
-        {
-            //g.DrawString(String.Format(" {0}", i + 1), Font, LineCountColor, 0.0F, cachedY, sf)
-            g.DrawString(text.Replace("\t", "    "), font, color, bounds.X, bounds.Y, currentStringFormat);
-            //TextRenderer.DrawText(g, text, font, new Rectangle((int)bounds.X, (int)bounds.Y, (int)bounds.Width, (int)bounds.Height), color.Color, TextFormatFlags.Left | TextFormatFlags.NoPadding); // , TextFormatFlags.NoPadding | TextFormatFlags.NoClipping
+        /// <summary>
+        /// GenericTypographic is used, Tab is replaced with 4 spaces
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="text"></param>
+        /// <param name="font"></param>
+        /// <param name="color"></param>
+        /// <param name="bounds"></param>
+        public static void DrawTextTypographic(this Graphics g, string text, Font font, SolidBrush color, RectangleF bounds)
+        {            
+            g.DrawString(text.Replace("\t", "    "), font, color, bounds.X, bounds.Y, currentStringFormat);            
         }
     }
 }
