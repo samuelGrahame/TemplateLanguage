@@ -9,6 +9,9 @@ using TemplateLanguage.Properties;
 #else
 using ExpressCraft;
 using System.Collections.Generic;
+using TemplateLanguageWeb;
+using Keys = ExpressCraft.KeyCodes;
+using static ExpressCraft.KeyCodes;
 #endif
 
 namespace TemplateLanguage

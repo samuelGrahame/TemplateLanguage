@@ -84,6 +84,7 @@
     <Compile Include="..\TemplateLanguage\Value.cs">
       <Link>Value.cs</Link>
     </Compile>
+    <Compile Include="Bitmap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
