@@ -1,11 +1,15 @@
-﻿using System;
+﻿#if !BRIDGE
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using TemplateLanguage.Properties;
+#else
+using ExpressCraft;
+using System.Collections.Generic;
+#endif
 
 namespace TemplateLanguage
 {
@@ -880,7 +884,7 @@ namespace TemplateLanguage
             {
                 var func = parent.FocusedItem is FunctionBody ? ((FunctionBody)parent.FocusedItem).Owner : (Function)parent.FocusedItem;
                 func.CalculateBounds();
-                if (new RectangleF(parent.X + parent.Width, parent.Y, func.Width, func.Width).Contains(x, y))
+                if (new RectangleF(parent.X + parent.Width, parent.Y, func.Width, func.Height).Contains(x, y))
                 {
                     return func.Body;
                 }
@@ -922,7 +926,7 @@ namespace TemplateLanguage
                     {
                         var func = (Function)cls.FocusedItem;
                         func.CalculateBounds();
-                        if(new RectangleF(cls.X + cls.Width, cls.Y, func.Width, func.Width).Contains(x, y))
+                        if(new RectangleF(cls.X + cls.Width, cls.Y, func.Width, func.Height).Contains(x, y))
                         {
                             return cls;
                         }
@@ -931,7 +935,7 @@ namespace TemplateLanguage
                     {
                         var func = ((FunctionBody)cls.FocusedItem).Owner;
                         func.CalculateBounds();
-                        if (new RectangleF(cls.X + cls.Width, cls.Y, func.Width, func.Width).Contains(x, y))
+                        if (new RectangleF(cls.X + cls.Width, cls.Y, func.Width, func.Height).Contains(x, y))
                         {
                             return cls;
                         }
