@@ -1,10 +1,14 @@
-﻿using System;
+﻿#if !BRIDGE
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+#else
+using ExpressCraft;
+using System.Collections.Generic;
+#endif
 
 namespace TemplateLanguage
 {
